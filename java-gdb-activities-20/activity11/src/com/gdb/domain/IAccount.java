@@ -10,4 +10,21 @@ import com.gdb.exceptions.*;
 //   - displayAccountInfo(), returning void.
 //   Tip: every signature must match the method that already exists in AbstractAccount.
 public interface IAccount {
+
+    //getter functions
+    public String getAccountNumber();
+    public String getName();
+    public double getBalance();
+    public String getAccountType();
+    public String getStatus();
+
+    //deposit amount 
+    public void deposit(double amount) throws InvalidAmountException;
+    //withdraw amount
+    public void withdraw(double amount , String pin) throws AccountException;
+    //display account information
+    public void displayAccountInfo();
+    
+
+
 }

@@ -10,6 +10,25 @@ public class AccountFactory {
     //       "SALARY"              -> a new SalaryAccount       (employerName "TechCorp")
     //       default               -> throw new IllegalArgumentException("Unknown account type: " + type)
     public static IAccount createAccount(String type, String accNum, String name, int age, double balance, String status, String pin) {
-        throw new UnsupportedOperationException("TODO: implement AccountFactory.createAccount (Activity 11, Step 3)");
+        if (type == null){
+            return null;
+        }
+        switch (type.toUpperCase()) {
+            case "SAVINGS":
+                return new SavingsAccount(accNum, name, age, balance, status, pin);
+            
+            case "CURRENT":
+                return new CurrentAccount(accNum, name, age, balance, status, pin, balance);
+                
+            case "FIXED_DEPOSIT":
+                return new FixedDepositAccount(accNum, name, age, balance, status, pin, age, balance);
+
+            case "SALARY":
+                return new SalaryAccount(accNum, name, age, balance, status, pin, name);
+                
+            default:
+                throw new UnsupportedOperationException("TODO: implement AccountFactory.createAccount (Activity 11, Step 3)");
+        }
+        
     }
 }
